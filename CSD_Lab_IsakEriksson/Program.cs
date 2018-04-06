@@ -28,6 +28,8 @@ namespace CSD_Lab_IsakEriksson
             Person newjoan = new Person("Joan", "Jonathan", "987");
             storage.Update(3, newjoan);
 
+            Console.WriteLine("Come on GIT you bastard");
+
             Console.ReadKey();
         }
     }
