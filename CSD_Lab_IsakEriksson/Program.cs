@@ -24,13 +24,21 @@ namespace CSD_Lab_IsakEriksson
 
             Person isakcopy = storage.Read(1);
             storage.Create(isakcopy);
-            List<Person> searchresults = storage.Read("Eriksson");
 
             Person newomar = new Person("Omar", "Salah", "121110");
             storage.Update(4, newomar);
 
             storage.Delete(4);
-            
+
+            PersonSearcher searcher = new PersonSearcher(storage);
+            List<Person> name_results = searcher.NameSearch("Eriksson");
+            List<Person> more_name_results = searcher.NameSearch("J");
+
+            /*List<Person> number_results = searcher.NumberSearch("123");
+            List<Person> more_number_results = searcher.NumberSearch("1");*/
+
+            List<Person> blabla = searcher.BasicSearch(storage, "GetFirstName", "Isak");
+
             Console.ReadKey();
         }
     }

@@ -7,13 +7,24 @@ using System.Threading.Tasks;
 
 namespace CSD_Lab_IsakEriksson
 {
-    class PersonStorage : IStorage<Person, int>, IEnumerable<Person>
+    class PersonStorage : IStorage<Person>, IEnumerable<Person>
     {
         private List<Person> storage { get; set; }
 
         public PersonStorage()
         {
             this.storage = new List<Person>();
+        }
+
+        //Implementing IEnumerable interface members
+        public IEnumerator<Person> GetEnumerator()
+        {
+            return storage.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
 
         //CRUD funcitonality
@@ -27,19 +38,6 @@ namespace CSD_Lab_IsakEriksson
             return storage.Find(person => person.GetId() == id);
         }
 
-        public List<Person> Read(string name)
-        {
-            List<Person> results = new List<Person>();
-            foreach (Person person in storage)
-            {
-                if ((person.GetFirstName() == name) || (person.GetLastName() == name))
-                {
-                    results.Add(person);
-                }
-            }
-            return results;
-        }
-
         public void Update(int id, Person updatedPerson)
         {
             Person person = Read(id);
@@ -51,17 +49,6 @@ namespace CSD_Lab_IsakEriksson
         {
             Person person = Read(id);
             storage.Remove(person);
-        }
-
-        //Implementation of Enumerable interface members
-        public IEnumerator<Person> GetEnumerator()
-        {
-            return storage.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return this.GetEnumerator();
         }
     }
 }
