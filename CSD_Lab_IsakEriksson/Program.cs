@@ -34,8 +34,8 @@ namespace CSD_Lab_IsakEriksson
             List<Person> name_results = searcher.NameSearch("Eriksson");
             List<Person> more_name_results = searcher.NameSearch("J");
 
-            /*List<Person> number_results = searcher.NumberSearch("123");
-            List<Person> more_number_results = searcher.NumberSearch("1");*/
+            List<Person> number_results = searcher.NumberSearch("123");
+            List<Person> more_number_results = searcher.NumberSearch("1");
 
             List<Person> blabla = searcher.BasicSearch(storage, "GetFirstName", "Isak");
 

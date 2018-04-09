@@ -36,7 +36,7 @@ namespace CSD_Lab_IsakEriksson
             }
             return results;
         }
-
+        */
         public List<Person> NumberSearch(string number)
         {
             List<Person> results = new List<Person>();
@@ -48,6 +48,6 @@ namespace CSD_Lab_IsakEriksson
                 }
             }
             return results;
-        }*/
+        }
     }
 }
