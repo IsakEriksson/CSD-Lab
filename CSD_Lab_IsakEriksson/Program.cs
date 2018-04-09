@@ -21,15 +21,16 @@ namespace CSD_Lab_IsakEriksson
             storage.Create(juan);
             storage.Create(joan);
             storage.Create(omar);
+
+            Person isakcopy = storage.Read(1);
+            storage.Create(isakcopy);
+            List<Person> searchresults = storage.Read("Eriksson");
+
+            Person newomar = new Person("Omar", "Salah", "121110");
+            storage.Update(4, newomar);
+
+            storage.Delete(4);
             
-            Person fakejuan = storage.Read(2);
-            storage.Create(fakejuan);
-
-            Person newjoan = new Person("Joan", "Jonathan", "987");
-            storage.Update(3, newjoan);
-
-            Console.WriteLine("Come on GIT you bastard");
-
             Console.ReadKey();
         }
     }

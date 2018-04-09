@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CSD_Lab_IsakEriksson
 {
-    class PersonStorage : IStorage<Person>
+    class PersonStorage : IStorage<Person, int>, IEnumerable<Person>
     {
         private List<Person> storage { get; set; }
 
@@ -26,9 +27,17 @@ namespace CSD_Lab_IsakEriksson
             return storage.Find(person => person.GetId() == id);
         }
 
-        public Person Read(string firstName)
+        public List<Person> Read(string name)
         {
-            return storage.Find(person => person.GetFirstName() == firstName);
+            List<Person> results = new List<Person>();
+            foreach (Person person in storage)
+            {
+                if ((person.GetFirstName() == name) || (person.GetLastName() == name))
+                {
+                    results.Add(person);
+                }
+            }
+            return results;
         }
 
         public void Update(int id, Person updatedPerson)
@@ -42,6 +51,17 @@ namespace CSD_Lab_IsakEriksson
         {
             Person person = Read(id);
             storage.Remove(person);
+        }
+
+        //Implementation of Enumerable interface members
+        public IEnumerator<Person> GetEnumerator()
+        {
+            return storage.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }
