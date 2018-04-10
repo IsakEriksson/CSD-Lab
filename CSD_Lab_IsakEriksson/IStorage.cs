@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace CSD_Lab_IsakEriksson
 {
+    /// <summary>
+    /// The generic interface for any Storage class.
+    /// Supports basic CRUD operations and an IEnumerator.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     interface IStorage<T> : IEnumerable<T>
     {
         void Create(T item);
@@ -14,8 +19,7 @@ namespace CSD_Lab_IsakEriksson
         void Update(int identifier, T item);
         void Delete(int identifier);
         
-        //Implementing IEnumerable interface members
+        //Implementing necessary IEnumerable interface member GetEnumerator()
         IEnumerator<T> GetEnumerator();
-
     }
 }

@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace CSD_Lab_IsakEriksson
 {
-    class PersonStorage : IStorage<Person>, IEnumerable<Person>
+    /// <summary>
+    /// The specific PersonStorage class, implementing IStorage interface with Person as parameter.
+    /// A PersonStorage always has a list as an attribute which serves as the actual storage.
+    /// </summary>
+    class PersonStorage : IStorage<Person>
     {
         private List<Person> storage { get; set; }
 
@@ -27,24 +31,41 @@ namespace CSD_Lab_IsakEriksson
             return this.GetEnumerator();
         }
 
-        //CRUD funcitonality
+        /// <summary>
+        /// Creates a person by adding it to the storage. Part of basic CRUD.
+        /// </summary>
+        /// <param name="person"></param>
         public void Create(Person person)
         {
             storage.Add(person);
         }
 
+        /// <summary>
+        /// Reads a person by its Id from the storage. Part of basic CRUD.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Person Read(int id)
         {
             return storage.Find(person => person.GetId() == id);
         }
 
+        /// <summary>
+        /// Updates a specific person by its Id, given an updated Person object. Part of basic CRUD.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updatedPerson"></param>
         public void Update(int id, Person updatedPerson)
         {
             Person person = Read(id);
             int index = storage.IndexOf(person);
-            storage.Insert(index, updatedPerson);
+            storage[index] = updatedPerson;
         }
 
+        /// <summary>
+        /// Deletes a specific person by its Id. Part of basic CRUD.
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             Person person = Read(id);

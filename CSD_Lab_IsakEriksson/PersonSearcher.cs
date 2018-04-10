@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace CSD_Lab_IsakEriksson
 {
-    //This should later on inherit basic search functions from a superclass
+    /// <summary>
+    /// The more specific PersonSearcher inherits the generic Searcher with Person as parameter.
+    /// It utilizes the generic BasicSearch from the superclass to perform relevant searches on its PersonStorage object.
+    /// In the future, this class will get more advanced searching methods that will be specific to searching for persons.
+    /// A PersonSearcher performs the searches on a local storage and returns the results as a list.
+    /// </summary>
     class PersonSearcher : Searcher<Person>
     {
         PersonStorage storage { get; set; }
@@ -16,37 +21,36 @@ namespace CSD_Lab_IsakEriksson
             this.storage = storage;
         }
 
-        public List<Person> NameSearch(string name)
+        /// <summary>
+        /// Utilizes the inherited BasicSearch to perform a search on a given firstName of a Person.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public List<Person> FirstNameSearch(string name)
         {
-            List<Person> results;
-            results = BasicSearch(storage, "GetFirstName", name);
-            results = BasicSearch(storage, "GetLastName", name);
+            List<Person> results = BasicSearch(storage, "GetFirstName", name);
             return results;
         }
 
-        /*public List<Person> NameSearch(string name)
+        /// <summary>
+        /// Utilizes the inherited BasicSearch to perform a search on a given lastName of a Person.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public List<Person> LastNameSearch(string name)
         {
-            List<Person> results = new List<Person>();
-            foreach (Person person in storage)
-            {
-                if ((person.GetFirstName() == name) || (person.GetLastName() == name) || person.GetFirstName().Contains(name) || person.GetLastName().Contains(name))
-                {
-                    results.Add(person);
-                }
-            }
+            List<Person> results = BasicSearch(storage, "GetLastName", name);
             return results;
         }
-        */
+
+        /// <summary>
+        /// Utilizes the inherited BasicSearch to perform a search on a given phoneNumber of a Person.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public List<Person> NumberSearch(string number)
         {
-            List<Person> results = new List<Person>();
-            foreach (Person person in storage)
-            {
-                if ((person.GetPhoneNumber() == number) || person.GetPhoneNumber().Contains(number))
-                {
-                    results.Add(person);
-                }
-            }
+            List<Person> results = BasicSearch(storage, "GetPhoneNumber", number);
             return results;
         }
     }
