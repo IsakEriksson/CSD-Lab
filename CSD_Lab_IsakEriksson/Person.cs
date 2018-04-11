@@ -13,15 +13,14 @@ namespace CSD_Lab_IsakEriksson
     /// </summary>
     class Person
     {
-        private int id { get; set; }
-        private static int counter;
-        private string firstName { get; set; }
-        private string lastName { get; set; }
-        private string phoneNumber { get; set; }
+        private int id;
+        private string firstName;
+        private string lastName;
+        private string phoneNumber;
 
-        public Person(string firstName, string lastName, string phonenumber)
+        public Person(int id, string firstName, string lastName, string phonenumber)
         {
-            this.id = ++counter;
+            this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.phoneNumber = phonenumber;
