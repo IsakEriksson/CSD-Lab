@@ -10,11 +10,14 @@ namespace CSD_Lab_IsakEriksson
     {
         static void Main(string[] args)
         {
+            // Create indexer.
+            IDIndexer personIndexer = new IDIndexer();
+
             // Simply displaying different methods implemented for examples of individuals.
-            Person isak = new Person("Isak", "Eriksson", "123");
-            Person juan = new Person("Juan Pablo", "Torres Padilla", "456");
-            Person joan = new Person("Joan", "Jonathan", "789");
-            Person omar = new Person("Omar", "Salah", "101112");
+            Person isak = new Person(personIndexer.GetId(), "Isak", "Eriksson", "123");
+            Person juan = new Person(personIndexer.GetId(), "Juan Pablo", "Torres Padilla", "456");
+            Person joan = new Person(personIndexer.GetId(), "Joan", "Jonathan", "789");
+            Person omar = new Person(personIndexer.GetId(), "Omar", "Salah", "101112");
             
             PersonStorage storage = new PersonStorage();
             
@@ -28,7 +31,7 @@ namespace CSD_Lab_IsakEriksson
             Person isakcopy = storage.Read(1);
 
             // Updating.
-            Person newomar = new Person("Omar", "Salah", "121110");
+            Person newomar = new Person(personIndexer.GetId(), "Omar", "Salah", "121110");
             storage.Update(4, newomar);
 
             // Deleting.
@@ -41,6 +44,8 @@ namespace CSD_Lab_IsakEriksson
             List<Person> first_name_results = searcher.FirstNameSearch("J");
             List<Person> number_results = searcher.NumberSearch("123");
             List<Person> more_number_results = searcher.NumberSearch("1");
+
+            Console.WriteLine(last_name_results.ToString());
 
             Console.ReadKey();
         }
