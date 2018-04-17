@@ -1,3 +1,11 @@
+Block 1 supplementation:
+
+Feedback
+	"Please eliminate usage of static keyword."
+Action
+	Static keywords eliminated.
+	Class IDIndexer created. Objects of this class handle the logic of indexing elements.
+
 Block 1 submission:
 
 (1) Natural language high-level description
