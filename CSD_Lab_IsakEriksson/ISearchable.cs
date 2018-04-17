@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CSD_Lab_IsakEriksson
 {
-    class Program
+    public interface ISearchable
     {
-        static void Main(string[] args)
-        {
-        }
+        int GetId();
     }
 }

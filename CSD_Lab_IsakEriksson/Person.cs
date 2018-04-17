@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace CSD_Lab_IsakEriksson
 {
     /// <summary>
-    /// The class Person indicates what attributes a person possesses.
+    /// The public class Person indicates what attributes a person possesses.
     /// Also gives methods to access specific attributes otherwise not available.
     /// Each person has an Id which is incrementally assigned.
     /// </summary>
-    class Person
+    public class Person : ISearchable
     {
         private int id;
         private string firstName;
