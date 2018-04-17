@@ -12,13 +12,13 @@ namespace CSD_Lab_IsakEriksson
     /// In the future, this class will get more advanced searching methods that will be specific to searching for persons.
     /// A PersonSearcher performs the searches on a local storage and returns the results as a list.
     /// </summary>
-    class PersonSearcher : Searcher<Person>
+    public class PersonSearcher : Searcher<Person>
     {
-        PersonStorage storage { get; set; }
+        private InMemoryStorage<Person> personStorage;
 
-        public PersonSearcher(PersonStorage storage)
+        public PersonSearcher(InMemoryStorage<Person> storage)
         {
-            this.storage = storage;
+            this.personStorage = storage;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace CSD_Lab_IsakEriksson
         /// <returns></returns>
         public List<Person> FirstNameSearch(string name)
         {
-            List<Person> results = BasicSearch(storage, "GetFirstName", name);
+            List<Person> results = BasicSearch(personStorage, "GetFirstName", name);
             return results;
         }
 
@@ -39,7 +39,7 @@ namespace CSD_Lab_IsakEriksson
         /// <returns></returns>
         public List<Person> LastNameSearch(string name)
         {
-            List<Person> results = BasicSearch(storage, "GetLastName", name);
+            List<Person> results = BasicSearch(personStorage, "GetLastName", name);
             return results;
         }
 
@@ -50,7 +50,7 @@ namespace CSD_Lab_IsakEriksson
         /// <returns></returns>
         public List<Person> NumberSearch(string number)
         {
-            List<Person> results = BasicSearch(storage, "GetPhoneNumber", number);
+            List<Person> results = BasicSearch(personStorage, "GetPhoneNumber", number);
             return results;
         }
     }

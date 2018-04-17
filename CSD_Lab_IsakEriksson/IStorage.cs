@@ -12,7 +12,7 @@ namespace CSD_Lab_IsakEriksson
     /// Supports basic CRUD operations and an IEnumerator.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface IStorage<T> : IEnumerable<T>
+    public interface IStorage<T> : IEnumerable<T>
     {
         void Create(T item);
         T Read(int identifier);

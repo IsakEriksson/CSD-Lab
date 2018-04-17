@@ -12,7 +12,7 @@ namespace CSD_Lab_IsakEriksson
     /// For now, it simply consists of the method BasicSearch, used for various searches mimicing the same behaviour.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class Searcher<T>
+    public class Searcher<T>
     {
         /// <summary>
         /// BasicSearch is the most basal version of what a search is in this program.
