@@ -137,7 +137,7 @@ namespace Unit_Tests_CSD_Lab
             List<Person> results = new List<Person>();
 
             // Act.
-            results = searcher.NumberSearch("123");
+            results = searcher.PhoneNumberSearch("123");
 
             // Assert.
             foreach (Person p in results)
@@ -153,7 +153,7 @@ namespace Unit_Tests_CSD_Lab
             List<Person> results = new List<Person>();
 
             // Act.
-            results = searcher.NumberSearch("1");
+            results = searcher.PhoneNumberSearch("1");
 
             // Assert.
             Assert.IsTrue(results.Count > 1);
@@ -166,7 +166,7 @@ namespace Unit_Tests_CSD_Lab
             List<Person> results = new List<Person>();
 
             // Act.
-            results = searcher.NumberSearch("1");
+            results = searcher.PhoneNumberSearch("1");
 
             // Assert.
             foreach (Person p in results)
@@ -182,7 +182,7 @@ namespace Unit_Tests_CSD_Lab
             List<Person> results = new List<Person>();
 
             // Act.
-            results = searcher.NumberSearch("J");
+            results = searcher.PhoneNumberSearch("J");
 
             // Assert.
             Assert.IsTrue(results.Count == 0);

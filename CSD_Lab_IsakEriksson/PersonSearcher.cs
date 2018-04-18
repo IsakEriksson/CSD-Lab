@@ -14,11 +14,11 @@ namespace CSD_Lab_IsakEriksson
     /// </summary>
     public class PersonSearcher : Searcher<Person>
     {
-        private InMemoryStorage<Person> personStorage;
+        private InMemoryStorage<Person> pStorage;
 
-        public PersonSearcher(InMemoryStorage<Person> storage)
+        public PersonSearcher(InMemoryStorage<Person> pStorage)
         {
-            this.personStorage = storage;
+            this.pStorage = pStorage;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace CSD_Lab_IsakEriksson
         /// <returns></returns>
         public List<Person> FirstNameSearch(string name)
         {
-            List<Person> results = BasicSearch(personStorage, "GetFirstName", name);
+            List<Person> results = BasicSearch(pStorage, "GetFirstName", name);
             return results;
         }
 
@@ -39,7 +39,7 @@ namespace CSD_Lab_IsakEriksson
         /// <returns></returns>
         public List<Person> LastNameSearch(string name)
         {
-            List<Person> results = BasicSearch(personStorage, "GetLastName", name);
+            List<Person> results = BasicSearch(pStorage, "GetLastName", name);
             return results;
         }
 
@@ -48,9 +48,9 @@ namespace CSD_Lab_IsakEriksson
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public List<Person> NumberSearch(string number)
+        public List<Person> PhoneNumberSearch(string number)
         {
-            List<Person> results = BasicSearch(personStorage, "GetPhoneNumber", number);
+            List<Person> results = BasicSearch(pStorage, "GetPhoneNumber", number);
             return results;
         }
     }
