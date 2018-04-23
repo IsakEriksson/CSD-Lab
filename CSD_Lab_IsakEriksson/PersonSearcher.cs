@@ -8,8 +8,8 @@ namespace CSD_Lab_IsakEriksson
 {
     /// <summary>
     /// The more specific PersonSearcher inherits the generic Searcher with Person as parameter.
-    /// It utilizes the generic BasicSearch from the superclass to perform relevant searches on its PersonStorage object.
-    /// In the future, this class will get more advanced searching methods that will be specific to searching for persons.
+    /// It utilizes the generic BasicSearch from the superclass to perform relevant searches on its InMemoryStorage object.
+    /// In the future, this class might be extended with more advanced searching methods, specific to searching for persons.
     /// A PersonSearcher performs the searches on a local storage and returns the results as a list.
     /// </summary>
     public class PersonSearcher : Searcher<Person>
@@ -52,6 +52,20 @@ namespace CSD_Lab_IsakEriksson
         {
             List<Person> results = BasicSearch(pStorage, "GetPhoneNumber", number);
             return results;
+        }
+
+        public List<Person> BirthDateSearch(DateTime birthDate)
+        {
+            return DateSearch(pStorage, "GetBirthDate", birthDate);
+            /*List<Person> results = new List<Person>();
+            foreach(Person p in pStorage)
+            {
+                if(p.GetBirthDate() == birthDate)
+                {
+                    results.Add(p);
+                }
+            }
+            return results;*/
         }
     }
 }

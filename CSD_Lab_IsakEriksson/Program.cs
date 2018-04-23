@@ -16,8 +16,8 @@ namespace CSD_Lab_IsakEriksson
             InMemoryStorage<Person> pStorage = new InMemoryStorage<Person>();
             InMemoryStorage<Organization> orgStorage = new InMemoryStorage<Organization>();
 
-            Person isak = new Person(pIndexer.GetId(), "Isak", "Eriksson", "+46738462851");
-            Person juan = new Person(pIndexer.GetId(), "Juan Pablo", "Torres Padilla", "+46736763542");
+            Person isak = new Person(pIndexer.GetId(), "Isak", "Eriksson", "+46738462851", new DateTime(1993, 8, 31));
+            Person juan = new Person(pIndexer.GetId(), "Juan Pablo", "Torres Padilla", "+46736763542", new DateTime(1992, 9, 22));
 
             Organization uu = new Organization(orgIndexer.GetId(), "Uppsala universitet", "S:T Olofsgatan 10B", "Uppsala", "0184710000", new DateTime(1477, 2, 27));
             Organization oj = new Organization(orgIndexer.GetId(), "Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
@@ -27,7 +27,6 @@ namespace CSD_Lab_IsakEriksson
 
             orgStorage.Create(uu);
             orgStorage.Create(oj);
-
         }
     }
 }

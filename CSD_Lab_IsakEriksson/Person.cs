@@ -8,8 +8,9 @@ namespace CSD_Lab_IsakEriksson
 {
     /// <summary>
     /// The public class Person indicates what attributes a person possesses.
+    /// In order to force a certain behaviour (for now, the method GetId) the class implements
+    /// the ISearchable interface.
     /// Also gives methods to access specific attributes otherwise not available.
-    /// Each person has an Id which is incrementally assigned.
     /// </summary>
     public class Person : ISearchable
     {
@@ -17,13 +18,15 @@ namespace CSD_Lab_IsakEriksson
         private string firstName;
         private string lastName;
         private string phoneNumber;
+        private DateTime birthDate;
 
-        public Person(int id, string firstName, string lastName, string phonenumber)
+        public Person(int id, string firstName, string lastName, string phonenumber, DateTime birthDate)
         {
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.phoneNumber = phonenumber;
+            this.birthDate = birthDate;
         }
 
         /// <summary>
@@ -60,6 +63,15 @@ namespace CSD_Lab_IsakEriksson
         public string GetPhoneNumber()
         {
             return this.phoneNumber;
+        }
+
+        /// <summary>
+        /// Return the birth date of a Person.
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetBirthDate()
+        {
+            return this.birthDate;
         }
     }
 }

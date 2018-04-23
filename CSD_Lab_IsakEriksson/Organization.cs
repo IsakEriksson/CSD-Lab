@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace CSD_Lab_IsakEriksson
 {
+    /// <summary>
+    /// The public class organization defines which attributes an organization possesses
+    /// in the program.
+    /// In order to make sure the class has a GetId method, the interface ISearchable is inherited.
+    /// Furthermore every attribute of the class is returned through separate Get methods
+    /// </summary>
     public class Organization : ISearchable
     {
         private int id;
@@ -25,31 +31,55 @@ namespace CSD_Lab_IsakEriksson
             this.foundingDate = foundingDate;
         }
 
+        /// <summary>
+        /// Returns the Id of an organization.
+        /// </summary>
+        /// <returns></returns>
         public int GetId()
         {
             return this.id;
         }
 
+        /// <summary>
+        /// Returns the name of an organization
+        /// </summary>
+        /// <returns></returns>
         public string GetName()
         {
             return this.name;
         }
 
+        /// <summary>
+        /// Returns the address of an organization.
+        /// </summary>
+        /// <returns></returns>
         public string GetAddress()
         {
             return this.address;
         }
 
+        /// <summary>
+        /// Returns the city of an organization.
+        /// </summary>
+        /// <returns></returns>
         public string GetCity()
         {
             return this.city;
         }
 
+        /// <summary>
+        /// Returns the phonenumber of an organization.
+        /// </summary>
+        /// <returns></returns>
         public string GetPhoneNumber()
         {
             return this.phoneNumber;
         }
 
+        /// <summary>
+        /// Returns the founding date of an organization.
+        /// </summary>
+        /// <returns></returns>
         public DateTime GetFoundingDate()
         {
             return this.foundingDate;

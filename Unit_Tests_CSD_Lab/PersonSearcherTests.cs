@@ -12,7 +12,7 @@ namespace Unit_Tests_CSD_Lab
     {
         // Arrange.
         IDIndexer personIndexer;
-        InMemoryStorage<Person> personStorage;
+        InMemoryStorage<Person> pStorage;
         PersonSearcher searcher;
 
         [TestInitialize]
@@ -22,22 +22,22 @@ namespace Unit_Tests_CSD_Lab
             personIndexer = new IDIndexer();
 
             // Create Person objects.
-            Person isak = new Person(personIndexer.GetId(), "Isak", "Eriksson", "123");
-            Person juan = new Person(personIndexer.GetId(), "Juan Pablo", "Torres Padilla", "456");
-            Person joan = new Person(personIndexer.GetId(), "Joan", "Jonathan", "789");
-            Person omar = new Person(personIndexer.GetId(), "Omar", "Salah", "101112");
+            Person isak = new Person(personIndexer.GetId(), "Isak", "Eriksson", "123", new DateTime(1993, 08, 31));
+            Person juan = new Person(personIndexer.GetId(), "Juan Pablo", "Torres Padilla", "456", new DateTime(1992, 09, 22));
+            Person joan = new Person(personIndexer.GetId(), "Joan", "Jonathan", "789", new DateTime(1990, 4, 4));
+            Person omar = new Person(personIndexer.GetId(), "Omar", "Salah", "101112", new DateTime(1994, 2, 1));
 
             // Create storage.
-            personStorage = new InMemoryStorage<Person>();
+            pStorage = new InMemoryStorage<Person>();
 
             // Store objects.
-            personStorage.Create(isak);
-            personStorage.Create(juan);
-            personStorage.Create(joan);
-            personStorage.Create(omar);
+            pStorage.Create(isak);
+            pStorage.Create(juan);
+            pStorage.Create(joan);
+            pStorage.Create(omar);
 
             // Create searcher.
-            searcher = new PersonSearcher(personStorage);
+            searcher = new PersonSearcher(pStorage);
         }
 
         [TestMethod]
@@ -183,6 +183,37 @@ namespace Unit_Tests_CSD_Lab
 
             // Act.
             results = searcher.PhoneNumberSearch("J");
+
+            // Assert.
+            Assert.IsTrue(results.Count == 0);
+        }
+
+        [TestMethod]
+        public void BirthDateSearch_IsCalledWithRegisteredBirthDate_ReturnsCorrectItems()
+        {
+            // Arrange.
+            List<Person> results = new List<Person>();
+            DateTime searchDate = new DateTime(1993, 8, 31);
+
+            // Act.
+            results = searcher.BirthDateSearch(searchDate);
+
+            // Assert.
+            foreach(Person p in results)
+            {
+                Assert.IsTrue(p.GetBirthDate() == searchDate);
+            }
+        }
+
+        [TestMethod]
+        public void BirthDateSearch_IsCalledWithUnregisteredBirthDate_ReturnsEmptyList()
+        {
+            // Arrange.
+            List<Person> results = new List<Person>();
+            DateTime searchDate = new DateTime(1993, 8, 30);
+
+            // Act.
+            results = searcher.BirthDateSearch(searchDate);
 
             // Assert.
             Assert.IsTrue(results.Count == 0);

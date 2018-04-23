@@ -7,7 +7,7 @@ using CSD_Lab_IsakEriksson;
 namespace Unit_Tests_CSD_Lab
 {
     /// <summary>
-    /// Summary description for UnitTest1
+    /// PersonTests tests the very basic functionalities of a Person object.
     /// </summary>
     [TestClass]
     public class PersonTests
@@ -19,7 +19,7 @@ namespace Unit_Tests_CSD_Lab
         [TestInitialize]
         public void Initialize()
         {
-            person = new Person(indexer.GetId(), "Isak", "Eriksson", "123");
+            person = new Person(indexer.GetId(), "Isak", "Eriksson", "123", new DateTime(1993, 8, 31));
         }
 
         [TestMethod]

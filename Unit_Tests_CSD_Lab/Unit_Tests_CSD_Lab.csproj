@@ -54,6 +54,7 @@
     <Compile Include="PersonTests.cs" />
     <Compile Include="IDIndexerTests.cs" />
     <Compile Include="PersonSearcherTests.cs" />
+    <Compile Include="InMemoryStorageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson.csproj">

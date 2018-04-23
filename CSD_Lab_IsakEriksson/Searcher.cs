@@ -16,7 +16,8 @@ namespace CSD_Lab_IsakEriksson
     {
         /// <summary>
         /// BasicSearch is the most basal version of what a search is in this program.
-        /// Taking a storage, performing a certain search function on it with a certain search string, it is highly flexible.
+        /// Taking a storage, performing a certain search function on all of its members,
+        /// comparing the return with a certain search string, it is highly flexible.
         /// </summary>
         /// <param name="storage"></param>
         /// <param name="function"></param>
@@ -30,7 +31,32 @@ namespace CSD_Lab_IsakEriksson
             foreach (T item in storage)
             {
                 string attributeValue = method.Invoke(item, null).ToString();
-                if (attributeValue == searchString || attributeValue.Contains(searchString)) 
+                if (attributeValue.Contains(searchString)) 
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// DateSearch is like BasicSearch but bound to attributes of type DateTime instead of string.
+        /// Taking a storage, performing a certain search function on all of its members,
+        /// comparing the return with a certain DateTime, this function too is flexible. 
+        /// </summary>
+        /// <param name="storage"></param>
+        /// <param name="function"></param>
+        /// <param name="searchDate"></param>
+        /// <returns></returns>
+        public List<T> DateSearch(IStorage<T> storage, string function, DateTime searchDate)
+        {
+            List<T> results = new List<T>();
+            Type thistype = typeof(T);
+            MethodInfo method = thistype.GetMethod(function);
+            foreach (T item in storage)
+            {
+                DateTime date = (DateTime)method.Invoke(item, null);
+                if (date == searchDate)
                 {
                     results.Add(item);
                 }
