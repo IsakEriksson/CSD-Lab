@@ -15,3 +15,9 @@ U:\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\obj\Debug\CSD_Lab_IsakEriksson.exe
 U:\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\obj\Debug\CSD_Lab_IsakEriksson.pdb
 U:\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\bin\Debug\CSD_Lab_IsakEriksson.exe
 U:\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\bin\Debug\CSD_Lab_IsakEriksson.pdb
+U:\GitHub\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\bin\Debug\CSD_Lab_IsakEriksson.exe.config
+U:\GitHub\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\obj\Debug\CSD_Lab_IsakEriksson.exe
+U:\GitHub\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\obj\Debug\CSD_Lab_IsakEriksson.pdb
+U:\GitHub\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\bin\Debug\CSD_Lab_IsakEriksson.exe
+U:\GitHub\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\bin\Debug\CSD_Lab_IsakEriksson.pdb
+U:\GitHub\CSD_Lab_IsakEriksson\CSD_Lab_IsakEriksson\obj\Debug\CSD_Lab_IsakEriksson.csprojResolveAssemblyReference.cache

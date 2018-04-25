@@ -19,3 +19,10 @@ U:\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\bin\Debug\CSD_Lab_IsakEriksson.pdb
 U:\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\obj\Debug\Unit_Tests_CSD_Lab.csprojResolveAssemblyReference.cache
 U:\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\obj\Debug\Unit_Tests_CSD_Lab.dll
 U:\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\obj\Debug\Unit_Tests_CSD_Lab.pdb
+U:\GitHub\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\obj\Debug\Unit_Tests_CSD_Lab.csprojResolveAssemblyReference.cache
+U:\GitHub\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\obj\Debug\Unit_Tests_CSD_Lab.dll
+U:\GitHub\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\bin\Debug\Unit_Tests_CSD_Lab.dll
+U:\GitHub\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\bin\Debug\Unit_Tests_CSD_Lab.pdb
+U:\GitHub\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\bin\Debug\CSD_Lab_IsakEriksson.exe
+U:\GitHub\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\bin\Debug\CSD_Lab_IsakEriksson.pdb
+U:\GitHub\CSD_Lab_IsakEriksson\Unit_Tests_CSD_Lab\obj\Debug\Unit_Tests_CSD_Lab.pdb

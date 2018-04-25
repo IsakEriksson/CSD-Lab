@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CSD_Lab_IsakEriksson;
 
@@ -18,7 +19,7 @@ namespace Unit_Tests_CSD_Lab
             // Create indexer.
             orgIndexer = new IDIndexer();
 
-            // Create Person objects.
+            // Create Organization objects.
             Organization uu = new Organization(orgIndexer.GetId(), "Uppsala universitet", "S:T Olofsgatan 10B", "Uppsala", "0184710000", new DateTime(1477, 2, 27));
             Organization oj = new Organization(orgIndexer.GetId(), "Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
 
@@ -36,11 +37,14 @@ namespace Unit_Tests_CSD_Lab
         [TestMethod]
         public void FoundingDateSearch_IsCalledWithValidDate_ReturnsCorrectList()
         {
+            // Arrange.
+            Organization oj = new Organization(2, "Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
+
             // Act.
             List<Organization> results = searcher.FoundingDateSearch(new DateTime(1903, 1, 1));
 
             // Assert.
-            Assert.AreEqual(results[0], oj);
+            Assert.AreEqual(results[0].GetFoundingDate(), oj.GetFoundingDate());
         }
     }
 }
