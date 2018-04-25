@@ -71,7 +71,8 @@ namespace CSD_Lab_IsakEriksson
         /// <returns></returns>
         public List<Organization> FoundingDateSearch(DateTime foundingDate)
         {
-            List<Organization> results = new List<Organization>();
+            return DateSearch(orgStorage, "GetFoundingDate", foundingDate);
+            /*List<Organization> results = new List<Organization>();
             foreach(Organization org in orgStorage)
             {
                 if(org.GetFoundingDate().Equals(foundingDate))
@@ -79,7 +80,7 @@ namespace CSD_Lab_IsakEriksson
                     results.Add(org);
                 }
             }
-            return results;
+            return results;*/
         }
     }
 }

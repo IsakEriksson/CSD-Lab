@@ -1,10 +1,8 @@
 ﻿<Properties StartupConfiguration="{6B686F43-1947-48DE-A460-C8A5D73F88B7}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="CSD_Lab_IsakEriksson/Program.cs">
     <Files>
-      <File FileName="CSD_Lab_IsakEriksson/PersonStorage.cs" Line="62" Column="1" />
-      <File FileName="CSD_Lab_IsakEriksson/Person.cs" Line="17" Column="34" />
-      <File FileName="CSD_Lab_IsakEriksson/IDIndexer.cs" Line="9" Column="18" />
-      <File FileName="CSD_Lab_IsakEriksson/Program.cs" Line="50" Column="31" />
+      <File FileName="CSD_Lab_IsakEriksson/Program.cs" Line="26" Column="35" />
+      <File FileName="CSD_Lab_IsakEriksson/PersonFactory.cs" Line="11" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
