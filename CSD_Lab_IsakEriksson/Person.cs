@@ -14,13 +14,13 @@ namespace CSD_Lab_IsakEriksson
     /// </summary>
     public class Person : ISearchable
     {
-        private int id;
-        private string firstName;
-        private string lastName;
-        private string phoneNumber;
-        private DateTime birthDate;
+        public int id { get; private set; }
+        public string firstName { get; private set; }
+        public string lastName { get; private set; }
+        public string phoneNumber { get; private set; }
+        public DateTime birthDate { get; private set; }
 
-        public Person(int id, string firstName, string lastName, string phonenumber, DateTime birthDate)
+        private Person(int id, string firstName, string lastName, string phonenumber, DateTime birthDate)
         {
             this.id = id;
             this.firstName = firstName;
@@ -72,6 +72,20 @@ namespace CSD_Lab_IsakEriksson
         public DateTime GetBirthDate()
         {
             return this.birthDate;
+        }
+
+        public class PersonFactory
+        {
+            private IDIndexer pIndexer;
+            public PersonFactory()
+            {
+                pIndexer = new IDIndexer();
+            }
+            public Person CreatePerson(string firstName, string lastName, string phonenumber, DateTime birthDate)
+            {
+                Person newPerson = new Person(pIndexer.GetId(), firstName, lastName, phonenumber, birthDate);
+                return newPerson;
+            }
         }
     }
 }

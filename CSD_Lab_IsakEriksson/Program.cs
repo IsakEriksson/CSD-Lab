@@ -10,7 +10,7 @@ namespace CSD_Lab_IsakEriksson
     {
         static void Main(string[] args)
         {
-            IDIndexer pIndexer = new IDIndexer();
+            /*IDIndexer pIndexer = new IDIndexer();
             IDIndexer orgIndexer = new IDIndexer();
 
             InMemoryStorage<Person> pStorage = new InMemoryStorage<Person>();
@@ -26,7 +26,7 @@ namespace CSD_Lab_IsakEriksson
             pStorage.Create(juan);
 
             orgStorage.Create(uu);
-            orgStorage.Create(oj);
+            orgStorage.Create(oj);*/
         }
     }
 }

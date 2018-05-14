@@ -13,13 +13,14 @@ namespace Unit_Tests_CSD_Lab
     public class PersonTests
     {
         // Arrange.
-        IDIndexer indexer = new IDIndexer();
         Person person;
+        Person.PersonFactory pFactory;
 
         [TestInitialize]
         public void Initialize()
         {
-            person = new Person(indexer.GetId(), "Isak", "Eriksson", "123", new DateTime(1993, 8, 31));
+            Person.PersonFactory pFactory = new Person.PersonFactory();
+            pFactory.CreatePerson("Isak", "Eriksson", "123", new DateTime(1993, 8, 31));
         }
 
         [TestMethod]
