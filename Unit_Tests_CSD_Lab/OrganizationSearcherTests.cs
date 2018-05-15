@@ -9,19 +9,16 @@ namespace Unit_Tests_CSD_Lab
     public class OrganizationSearcherTests
     {
         // Arrange.
-        IDIndexer orgIndexer;
         InMemoryStorage<Organization> orgStorage;
         OrganizationSearcher searcher;
+        Organization.OrganizationFactory orgFactory;
 
         [TestInitialize]
         public void Initialize()
         {
-            // Create indexer.
-            orgIndexer = new IDIndexer();
-
             // Create Organization objects.
-            Organization uu = new Organization(orgIndexer.GetId(), "Uppsala universitet", "S:T Olofsgatan 10B", "Uppsala", "0184710000", new DateTime(1477, 2, 27));
-            Organization oj = new Organization(orgIndexer.GetId(), "Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
+            Organization uu = orgFactory.CreateOrganization("Uppsala universitet", "S:T Olofsgatan 10B", "Uppsala", "0184710000", new DateTime(1477, 2, 27));
+            Organization oj = orgFactory.CreateOrganization("Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
 
             // Create storage.
             orgStorage = new InMemoryStorage<Organization>();

@@ -57,15 +57,20 @@ namespace CSD_Lab_IsakEriksson
         public List<Person> BirthDateSearch(DateTime birthDate)
         {
             return DateSearch(pStorage, "GetBirthDate", birthDate);
-            /*List<Person> results = new List<Person>();
-            foreach(Person p in pStorage)
+        }
+
+        public List<Person> BirthDateIntervalSearch(DateTime fromDate, DateTime toDate)
+        {
+            List<Person> results = new List<Person>();
+            foreach (Person p in pStorage)
             {
-                if(p.GetBirthDate() == birthDate)
+                DateTime birthDate = p.GetBirthDate();
+                if (birthDate.CompareTo(fromDate) >= 0 && birthDate.CompareTo(toDate) <= 0)
                 {
                     results.Add(p);
                 }
             }
-            return results;*/
+            return results;
         }
     }
 }

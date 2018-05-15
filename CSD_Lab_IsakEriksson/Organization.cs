@@ -21,7 +21,7 @@ namespace CSD_Lab_IsakEriksson
         public readonly string phoneNumber;
         private readonly DateTime foundingDate;
 
-        public Organization(int id, string name, string address, string city, string phoneNumber, DateTime foundingDate)
+        private Organization(int id, string name, string address, string city, string phoneNumber, DateTime foundingDate)
         {
             this.id = id;
             this.name = name;
@@ -83,6 +83,24 @@ namespace CSD_Lab_IsakEriksson
         public DateTime GetFoundingDate()
         {
             return this.foundingDate;
+        }
+
+        /// <summary>
+        /// With the OrganizationFactory class, the factory pattern is implemented.
+        /// This class is the only class with access to the constructor of the Organization class,
+        /// meaning it is the only way of creating Organization objects.
+        /// </summary>
+        public class OrganizationFactory
+        {
+            IDIndexer orgIndexer;
+            public OrganizationFactory()
+            {
+                orgIndexer = new IDIndexer();
+            }
+            public Organization CreateOrganization(string name, string address, string city, string phoneNumber, DateTime foundingDate)
+            {
+                return new Organization(orgIndexer.GetId(), name, address, city, phoneNumber, foundingDate);
+            }
         }
     }
 }

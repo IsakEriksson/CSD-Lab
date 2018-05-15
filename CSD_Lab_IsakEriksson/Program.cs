@@ -10,23 +10,27 @@ namespace CSD_Lab_IsakEriksson
     {
         static void Main(string[] args)
         {
-            /*IDIndexer pIndexer = new IDIndexer();
-            IDIndexer orgIndexer = new IDIndexer();
-
             InMemoryStorage<Person> pStorage = new InMemoryStorage<Person>();
             InMemoryStorage<Organization> orgStorage = new InMemoryStorage<Organization>();
 
-            Person isak = new Person(pIndexer.GetId(), "Isak", "Eriksson", "+46738462851", new DateTime(1993, 8, 31));
-            Person juan = new Person(pIndexer.GetId(), "Juan Pablo", "Torres Padilla", "+46736763542", new DateTime(1992, 9, 22));
+            Person.PersonFactory pFactory = new Person.PersonFactory();
+            Organization.OrganizationFactory orgFactory = new Organization.OrganizationFactory();
 
-            Organization uu = new Organization(orgIndexer.GetId(), "Uppsala universitet", "S:T Olofsgatan 10B", "Uppsala", "0184710000", new DateTime(1477, 2, 27));
-            Organization oj = new Organization(orgIndexer.GetId(), "Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
+            Person isak = pFactory.CreatePerson("Isak", "Eriksson", "+46738462851", new DateTime(1993, 8, 31));
+            Person juan = pFactory.CreatePerson("Juan Pablo", "Torres Padilla", "+46736763542", new DateTime(1992, 9, 22));
+
+            Organization uu = orgFactory.CreateOrganization("Uppsala universitet", "S:T Olofsgatan 10B", "Uppsala", "0184710000", new DateTime(1477, 2, 27));
+            Organization oj = orgFactory.CreateOrganization("Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
 
             pStorage.Create(isak);
             pStorage.Create(juan);
 
             orgStorage.Create(uu);
-            orgStorage.Create(oj);*/
+            orgStorage.Create(oj);
+
+            PersonSearcher ps = new PersonSearcher(pStorage);
+
+            List<Person> results = ps.BirthDateIntervalSearch(new DateTime(1992, 9, 23), new DateTime(1993, 9, 1));
         }
     }
 }

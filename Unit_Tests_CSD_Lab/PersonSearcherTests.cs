@@ -11,7 +11,7 @@ namespace Unit_Tests_CSD_Lab
     public class PersonSearcherTests
     {
         // Arrange.
-        IDIndexer personIndexer;
+        Person.PersonFactory pFactory;
         InMemoryStorage<Person> pStorage;
         PersonSearcher searcher;
 
@@ -19,13 +19,13 @@ namespace Unit_Tests_CSD_Lab
         public void Initialize()
         {
             // Create indexer.
-            personIndexer = new IDIndexer();
+            pFactory = new Person.PersonFactory();
 
             // Create Person objects.
-            Person isak = new Person(personIndexer.GetId(), "Isak", "Eriksson", "123", new DateTime(1993, 08, 31));
-            Person juan = new Person(personIndexer.GetId(), "Juan Pablo", "Torres Padilla", "456", new DateTime(1992, 09, 22));
-            Person joan = new Person(personIndexer.GetId(), "Joan", "Jonathan", "789", new DateTime(1990, 4, 4));
-            Person omar = new Person(personIndexer.GetId(), "Omar", "Salah", "101112", new DateTime(1994, 2, 1));
+            Person isak = pFactory.CreatePerson("Isak", "Eriksson", "123", new DateTime(1993, 08, 31));
+            Person juan = pFactory.CreatePerson("Juan Pablo", "Torres Padilla", "456", new DateTime(1992, 09, 22));
+            Person joan = pFactory("Joan", "Jonathan", "789", new DateTime(1990, 4, 4));
+            Person omar = pFactory("Omar", "Salah", "101112", new DateTime(1994, 2, 1));
 
             // Create storage.
             pStorage = new InMemoryStorage<Person>();

@@ -74,6 +74,11 @@ namespace CSD_Lab_IsakEriksson
             return this.birthDate;
         }
 
+        /// <summary>
+        /// With the PersonFactory class, the factory pattern is implemented.
+        /// This class is the only class with access to the constructor of the Person class,
+        /// meaning it is the only way of creating Person objects.
+        /// </summary>
         public class PersonFactory
         {
             private IDIndexer pIndexer;
@@ -83,8 +88,7 @@ namespace CSD_Lab_IsakEriksson
             }
             public Person CreatePerson(string firstName, string lastName, string phonenumber, DateTime birthDate)
             {
-                Person newPerson = new Person(pIndexer.GetId(), firstName, lastName, phonenumber, birthDate);
-                return newPerson;
+                return new Person(pIndexer.GetId(), firstName, lastName, phonenumber, birthDate);
             }
         }
     }
