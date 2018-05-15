@@ -24,8 +24,8 @@ namespace Unit_Tests_CSD_Lab
             // Create Person objects.
             Person isak = pFactory.CreatePerson("Isak", "Eriksson", "123", new DateTime(1993, 08, 31));
             Person juan = pFactory.CreatePerson("Juan Pablo", "Torres Padilla", "456", new DateTime(1992, 09, 22));
-            Person joan = pFactory("Joan", "Jonathan", "789", new DateTime(1990, 4, 4));
-            Person omar = pFactory("Omar", "Salah", "101112", new DateTime(1994, 2, 1));
+            Person joan = pFactory.CreatePerson("Joan", "Jonathan", "789", new DateTime(1990, 4, 4));
+            Person omar = pFactory.CreatePerson("Omar", "Salah", "101112", new DateTime(1994, 2, 1));
 
             // Create storage.
             pStorage = new InMemoryStorage<Person>();

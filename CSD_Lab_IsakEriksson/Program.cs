@@ -31,6 +31,11 @@ namespace CSD_Lab_IsakEriksson
             PersonSearcher ps = new PersonSearcher(pStorage);
 
             List<Person> results = ps.BirthDateIntervalSearch(new DateTime(1992, 9, 23), new DateTime(1993, 9, 1));
+
+            CSV_parser csvp = new CSV_parser();
+            string csvtest = "isak, eriksson, 123, 93/08/31; juna, poblo, 123, 92/01/31";
+            
+            List<Person> peopre = pFactory.CreatePeople(csvtest);
         }
     }
 }

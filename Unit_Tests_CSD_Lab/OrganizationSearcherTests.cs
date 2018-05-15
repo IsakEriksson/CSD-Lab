@@ -16,6 +16,9 @@ namespace Unit_Tests_CSD_Lab
         [TestInitialize]
         public void Initialize()
         {
+            // Create Factory.
+            orgFactory = new Organization.OrganizationFactory();
+
             // Create Organization objects.
             Organization uu = orgFactory.CreateOrganization("Uppsala universitet", "S:T Olofsgatan 10B", "Uppsala", "0184710000", new DateTime(1477, 2, 27));
             Organization oj = orgFactory.CreateOrganization("Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
@@ -35,7 +38,7 @@ namespace Unit_Tests_CSD_Lab
         public void FoundingDateSearch_IsCalledWithValidDate_ReturnsCorrectList()
         {
             // Arrange.
-            Organization oj = new Organization(2, "Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
+            Organization oj = orgFactory.CreateOrganization("Oscar Jacobson", "Vevgatan 1", "Borås", "+4633233300", new DateTime(1903, 1, 1));
 
             // Act.
             List<Organization> results = searcher.FoundingDateSearch(new DateTime(1903, 1, 1));

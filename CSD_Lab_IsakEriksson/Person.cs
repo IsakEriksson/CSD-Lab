@@ -82,13 +82,28 @@ namespace CSD_Lab_IsakEriksson
         public class PersonFactory
         {
             private IDIndexer pIndexer;
+            private CSV_parser csv_parser;
             public PersonFactory()
             {
                 pIndexer = new IDIndexer();
+                csv_parser = new CSV_parser();
             }
             public Person CreatePerson(string firstName, string lastName, string phonenumber, DateTime birthDate)
             {
                 return new Person(pIndexer.GetId(), firstName, lastName, phonenumber, birthDate);
+            }
+
+            public List<Person> CreatePeople(string csv_people)
+            {
+                List<Person> people = new List<Person>();
+                object[][] people_data = csv_parser.Parse_CSV(csv_people);
+                for (int i = 0; i < people_data.GetLength(0); i++)
+                {
+                    DateTime birthDate = Convert.ToDateTime(people_data[i][3]);
+                    Person person = new Person(pIndexer.GetId(), people_data[i][0].ToString(), people_data[i][1].ToString(), people_data[i][2].ToString(), birthDate);
+                    people.Add(person);
+                }
+                return people;
             }
         }
     }

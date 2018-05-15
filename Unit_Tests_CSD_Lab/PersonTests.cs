@@ -19,8 +19,8 @@ namespace Unit_Tests_CSD_Lab
         [TestInitialize]
         public void Initialize()
         {
-            Person.PersonFactory pFactory = new Person.PersonFactory();
-            pFactory.CreatePerson("Isak", "Eriksson", "123", new DateTime(1993, 8, 31));
+            pFactory = new Person.PersonFactory();
+            person = pFactory.CreatePerson("Isak", "Eriksson", "123", new DateTime(1993, 8, 31));
         }
 
         [TestMethod]
