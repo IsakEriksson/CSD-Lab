@@ -99,9 +99,7 @@ namespace CSD_Lab_IsakEriksson
                 object[][] people_data = csv_parser.Parse_CSV(csv_people);
                 for (int i = 0; i < people_data.GetLength(0); i++)
                 {
-                    DateTime birthDate = Convert.ToDateTime(people_data[i][3]);
-                    Person person = new Person(pIndexer.GetId(), people_data[i][0].ToString(), people_data[i][1].ToString(), people_data[i][2].ToString(), birthDate);
-                    people.Add(person);
+                    people.Add(new Person(pIndexer.GetId(), people_data[i][0].ToString(), people_data[i][1].ToString(), people_data[i][2].ToString(), Convert.ToDateTime(people_data[i][3])));
                 }
                 return people;
             }

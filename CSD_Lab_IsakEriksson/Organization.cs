@@ -93,13 +93,25 @@ namespace CSD_Lab_IsakEriksson
         public class OrganizationFactory
         {
             IDIndexer orgIndexer;
+            CSV_parser csv_parser;
             public OrganizationFactory()
             {
                 orgIndexer = new IDIndexer();
+                csv_parser = new CSV_parser();
             }
             public Organization CreateOrganization(string name, string address, string city, string phoneNumber, DateTime foundingDate)
             {
                 return new Organization(orgIndexer.GetId(), name, address, city, phoneNumber, foundingDate);
+            }
+            public List<Organization> CreateOrganizations(string csv)
+            {
+                List<Organization> organizations = new List<Organization>();
+                object[][] csv_org = csv_parser.Parse_CSV(csv);
+                for (int i = 0; i < csv_org.GetLength(0); i++)
+                {
+                    organizations.Add(new Organization(orgIndexer.GetId(), csv_org[i][0].ToString(), csv_org[i][1].ToString(), csv_org[i][2].ToString(), csv_org[i][3].ToString(), Convert.ToDateTime(csv_org[i][4])));
+                }
+                return organizations;
             }
         }
     }
